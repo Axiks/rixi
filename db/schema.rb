@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_235954) do
+ActiveRecord::Schema.define(version: 2018_12_08_004704) do
 
   create_table "meets", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.text "location"
+    t.string "location"
     t.datetime "meetdate"
-    t.string "bg"
     t.string "ava"
+    t.string "bg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

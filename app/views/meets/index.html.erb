@@ -1,2 +1,7 @@
-<h1>Meets#index</h1>
-<p>Find me in app/views/meets/index.html.erb</p>
+<h1>Список пропонованих зустрiчей</h1>
+<% @meets.each do |meet| %>
+	<br>
+	<a href="<%= meet.id%>"><h2><%= meet.title%></h2></a>
+	<h4><%= meet.location%></h4>
+	<h4><%= meet.meetdate%></h4>
+<% end %>
