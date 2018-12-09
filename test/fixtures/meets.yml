@@ -4,7 +4,8 @@ one:
   title: MyString
   description: MyText
   location: MyString
-  meetdate: 2018-12-08 02:47:04
+  meetdate: 2018-12-10
+  meetime: 2018-12-10 01:38:38
   ava: MyString
   bg: MyString
 
@@ -12,6 +13,7 @@ two:
   title: MyString
   description: MyText
   location: MyString
-  meetdate: 2018-12-08 02:47:04
+  meetdate: 2018-12-10
+  meetime: 2018-12-10 01:38:38
   ava: MyString
   bg: MyString

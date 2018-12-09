@@ -1,0 +1,25 @@
+<h1>Створення зустрiчi</h1>
+
+<%= form_for @meet do |f| %>
+	<div class="form-control">
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="form-control">
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</div>
+	<div class="form-control">
+		<%= f.label :location %>
+		<%= f.text_field :location %>
+	</div>
+	<div class="form-control">
+		<%= f.label :meetdate %>
+		<%= f.date_field :meetdate %>
+	</div>
+	<div class="form-control">
+		<%= f.label :meetdate %>
+		<%= f.time_field :meetdate %>
+	</div>
+	<%= f.submit "Створити" %>
+<% end %>

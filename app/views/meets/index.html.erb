@@ -1,7 +1,8 @@
 <h1>Список пропонованих зустрiчей</h1>
+<p><a href="meets/new">Добавити нову зустріч</a></p>
 <% @meets.each do |meet| %>
 	<br>
-	<a href="<%= meet.id%>"><h2><%= meet.title%></h2></a>
+	<a href="meets/<%= meet.id%>"><h2><%= meet.title%></h2></a>
 	<h4><%= meet.location%></h4>
 	<h4><%= meet.meetdate%></h4>
 <% end %>

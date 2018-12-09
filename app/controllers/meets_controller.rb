@@ -5,4 +5,7 @@ class MeetsController < ApplicationController
   def show 
   	@meet = Meet.find(params[:id])
   end
+  def new
+  	@meet = Meet.new
+  end
 end

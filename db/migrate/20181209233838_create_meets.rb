@@ -4,7 +4,8 @@ class CreateMeets < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.string :location
-      t.datetime :meetdate
+      t.date :meetdate
+      t.time :meetime
       t.string :ava
       t.string :bg
 
