@@ -1,5 +1,5 @@
 <h1>Список пропонованих зустрiчей</h1>
-<p><a href="meets/new">Добавити нову зустріч</a></p>
+<%= link_to "Нова зустріч", new_meet_path %>
 <% @meets.each do |meet| %>
 	<br>
 	<a href="meets/<%= meet.id%>"><h2><%= meet.title%></h2></a>
