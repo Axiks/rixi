@@ -1,2 +1,2 @@
-class Meet < ApplicationRecord
+class Meet < ApplicationRecord 
 end
