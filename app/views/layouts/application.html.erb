@@ -10,8 +10,15 @@
   </head>
 
   <body>
-    <a href="<%= new_user_session_path %>">Вхід</a>
-    <a href="<%= new_user_registration_path %>">Реєстрація</a>
+
+    <% if user_signed_in? %>
+      <%= link_to "Вихід", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <a href="<%= new_user_session_path %>">Вхід</a>
+      <a href="<%= new_user_registration_path %>">Реєстрація</a>
+    <% end %>
+
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
