@@ -13,6 +13,7 @@
 
     <% if user_signed_in? %>
       <%= link_to "Вихід", destroy_user_session_path, method: :delete %>
+      <a href="<%= new_meet_path %>">Створення нової зустрічі</a>
     <% else %>
       <a href="<%= new_user_session_path %>">Вхід</a>
       <a href="<%= new_user_registration_path %>">Реєстрація</a>

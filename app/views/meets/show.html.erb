@@ -4,4 +4,9 @@
 <h3>Meet time: <%= @meet.meetime%></h3>
 <h3>Meet location: <%= @meet.location%></h3>
 <br>
-<%= link_to "Delete", meet_path(@meet), method: :delete, data: { confirm: 'Delete ???' } %>
+
+<% if user_signed_in? %>
+	<% if current_user.id == 1 %>
+		<%= link_to "Видалити", meet_path(@meet), method: :delete, data: { confirm: 'Дійсно видалити зустріч ???' } %>
+	<% end %>
+<% end %>
