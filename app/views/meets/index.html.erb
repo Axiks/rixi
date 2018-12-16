@@ -1,8 +1,13 @@
-<h1>Список пропонованих зустрiчей</h1>
+<h1 class="mt-5 mb-5">Список пропонованих зустрiчей</h1>
 
-<% @meets.each do |meet| %>
-	<br>
-	<a href="meets/<%= meet.id%>"><h2><%= meet.title%></h2></a>
-	<h4><%= meet.location%></h4>
-	<h4><%= meet.meetdate%></h4>
-<% end %>
+<div class="row">
+	<% @meets.each do |meet| %>
+		<div class="col-12 shadow p-3 mb-3 border rounded">
+			<a href="meets/<%= meet.id%>"><h2><%= meet.title%></h2></a>
+			<div class="row justify-content-between">
+				<div class="col-auto"><%= meet.location%></div>
+				<div class="col-auto"><%= meet.meetdate%></div>
+			</div>
+		</div>
+	<% end %>
+</div>

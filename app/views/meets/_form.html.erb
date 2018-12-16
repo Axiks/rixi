@@ -1,23 +1,23 @@
 <%= form_for @meet do |f| %>
-	<div class="form-control">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
+	<div class="form-group row">
+		<%= f.label :title, :class => 'col-sm-2 col-form-label' %>
+		<%= f.text_field :title, :class => 'form-control' %>
 	</div>
-	<div class="form-control">
-		<%= f.label :description %>
-		<%= f.text_area :description %>
+	<div class="form-group row">
+		<%= f.label :description, :class => 'col-sm-2 col-form-label' %>
+		<%= f.text_area :description, :class => 'form-control' , rows: "10"%>
 	</div>
-	<div class="form-control">
-		<%= f.label :location %>
-		<%= f.text_field :location %>
+	<div class="form-group row">
+		<%= f.label :location, :class => 'col-sm-2 col-form-label' %>
+		<%= f.text_field :location , :class => 'form-control'%>
 	</div>
-	<div class="form-control">
-		<%= f.label :meetdate %>
-		<%= f.date_field :meetdate %>
+	<div class="form-group row">
+		<%= f.label :meetdate, :class => 'col-sm-2 col-form-label' %>
+		<%= f.date_field :meetdate , :class => 'form-control'%>
 	</div>
-	<div class="form-control">
-		<%= f.label :meetime %>
-		<%= f.time_field :meetime %>
+	<div class="form-group row">
+		<%= f.label :meetime, :class => 'col-sm-2 col-form-label' %>
+		<%= f.time_field :meetime , :class => 'form-control'%>
 	</div>
-	<%= f.submit "Зберегти" %>
+	<%= f.submit "Зберегти", :class => 'btn btn-primary'%>
 <% end %>
