@@ -7,11 +7,14 @@
 			<div class="col-12"> Meet date <%= @meet.meetdate%></div>
 			<div class="col-12">Meet time <%= @meet.meetime%></div>
 			<div class="col-12">Meet location <%= @meet.location%></div>
+			<div class="col-12">Автор зустрічі <%= @meet.user_id %> </div>
+			<div class="col-12">Автор  <%= @meet.user.email %> </div>
 			<div class="col-12">
 				<% if user_signed_in? %>
-				<% if current_user.id == 1 %>
+				<% if current_user.id == @meet.user_id %>
 					<%= link_to "Редагувати", edit_meet_path(@meet), :class => 'btn btn-info' %>
 					<%= link_to "Видалити", meet_path(@meet), method: :delete, data: { confirm: 'Дійсно видалити зустріч ???' }, :class => 'btn btn-danger' %>
+					<a href="#" class="btn btn-success">Прийду</a>
 				<% end %>
 			<% end %>
 			</div>
