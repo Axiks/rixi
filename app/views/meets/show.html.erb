@@ -7,7 +7,7 @@
 
 <% if user_signed_in? %>
 	<% if current_user.id == 1 %>
-		<%= link_to "Видалити", meet_path(@meet), method: :delete, data: { confirm: 'Дійсно видалити зустріч ???' } %>
-		<%= link_to "Редагувати", edit_meet_path(@meet) %>
+		<%= link_to "Редагувати", edit_meet_path(@meet), :class => 'btn btn-light' %>
+		<%= link_to "Видалити", meet_path(@meet), method: :delete, data: { confirm: 'Дійсно видалити зустріч ???' }, :class => 'btn btn-danger' %>
 	<% end %>
 <% end %>

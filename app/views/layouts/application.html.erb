@@ -7,22 +7,48 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
   <body>
 
-    <a href="<%= root_path %>">Головна</a>
-    <% if user_signed_in? %>
-      <%= link_to "Вихід", destroy_user_session_path, method: :delete %>
-      <a href="<%= new_meet_path %>">Створення нової зустрічі</a>
-    <% else %>
-      <a href="<%= new_user_session_path %>">Вхід</a>
-      <a href="<%= new_user_registration_path %>">Реєстрація</a>
-    <% end %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="<%= root_path %>">Rixi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= root_path %>">Головна<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
 
+      <ul class="nav justify-content-end">
+        <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="btn btn-primary" href="<%= new_meet_path %>">Створення зустрічі</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Вихід", destroy_user_session_path, method: :delete, :class => 'nav-link' %>
+            </li>
+        <% else %>
+            <li class="nav-item">
+              <a class="nav-link active" href="<%= new_user_session_path %>">Вхід</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= new_user_registration_path %>">Реєстрація</a>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  </div>>
+
   </body>
 </html>
