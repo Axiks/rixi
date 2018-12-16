@@ -1,0 +1,23 @@
+<%= form_for @meet do |f| %>
+	<div class="form-control">
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="form-control">
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</div>
+	<div class="form-control">
+		<%= f.label :location %>
+		<%= f.text_field :location %>
+	</div>
+	<div class="form-control">
+		<%= f.label :meetdate %>
+		<%= f.date_field :meetdate %>
+	</div>
+	<div class="form-control">
+		<%= f.label :meetime %>
+		<%= f.time_field :meetime %>
+	</div>
+	<%= f.submit "Зберегти" %>
+<% end %>

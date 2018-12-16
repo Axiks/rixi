@@ -21,7 +21,17 @@ class MeetsController < ApplicationController
   		render :new
   	end
   end
-
+  def edit
+  	@meet = Meet.find(params[:id])
+  end
+  def update
+  	@meet = Meet.find(params[:id])
+  	if @meet.update_attributes( meet_params)
+  		redirect_to @meet
+  	else
+  		render :edit
+  	end
+  end
   private
 
   def meet_params

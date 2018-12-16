@@ -11,6 +11,7 @@
 
   <body>
 
+    <a href="<%= root_path %>">Головна</a>
     <% if user_signed_in? %>
       <%= link_to "Вихід", destroy_user_session_path, method: :delete %>
       <a href="<%= new_meet_path %>">Створення нової зустрічі</a>
