@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_12_13_211201) do
 
   create_table "meets", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "description"
     t.string "location"

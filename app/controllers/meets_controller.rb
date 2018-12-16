@@ -1,20 +1,22 @@
 class MeetsController < ApplicationController
+	before_action :authenticate_user! , except:[:index,:show]
+	before_action :find_meet, except:[:index,:new,:create]
   def index
   	@meets = Meet.all
   end
   def show 
-  	@meet = Meet.find(params[:id])
   end
   def new
   	@meet = Meet.new
   end
   def destroy
-  	@meet = Meet.find(params[:id])
   	@meet.destroy
   	redirect_to meets_path
   end
   def create
+  	params[:meet][:user_id]=current_user.id
   	@meet = Meet.new(meet_params)
+
   	if @meet.save
   		redirect_to @meet
   	else
@@ -22,10 +24,8 @@ class MeetsController < ApplicationController
   	end
   end
   def edit
-  	@meet = Meet.find(params[:id])
   end
   def update
-  	@meet = Meet.find(params[:id])
   	if @meet.update_attributes( meet_params)
   		redirect_to @meet
   	else
@@ -35,6 +35,10 @@ class MeetsController < ApplicationController
   private
 
   def meet_params
-  	params.require(:meet).permit(:title, :description, :location, :meetdate, :meetime)
+  	params.require(:meet).permit(:title, :description, :location, :meetdate, :meetime, :user_id)
+  end
+
+  def find_meet
+  	@meet = Meet.find(params[:id])
   end
 end
