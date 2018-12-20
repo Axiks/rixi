@@ -4,7 +4,10 @@ class MeetsController < ApplicationController
   def index
   	@meets = Meet.all
   end
-  def show 
+  def show
+  	@comes = @meet.comes
+  	#@users = User.find_by_id(@comes)
+  	#@com = @comes.find(current_user.id)
   end
   def new
   	@meet = Meet.new
@@ -31,6 +34,8 @@ class MeetsController < ApplicationController
   	else
   		render :edit
   	end
+  end
+  def mymethod
   end
   private
 

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_13_211201) do
+ActiveRecord::Schema.define(version: 2018_12_16_184543) do
+
+  create_table "comes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "meet_id"
+    t.boolean "come", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "meets", force: :cascade do |t|
     t.integer "user_id"
