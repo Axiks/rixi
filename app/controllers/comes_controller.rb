@@ -1,6 +1,9 @@
 class ComesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+  	@comes = Come.where("user_id = ? AND come = ?", current_user.id, true)
+  end
   def new
   	@come = Come.new
   end

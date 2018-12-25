@@ -1,0 +1,12 @@
+<h1 class="mt-5 mb-5">Список зустрiчей користувача</h1>
+
+<div class="row">
+	<% @comes.each do |come| %>
+		<div class="col-12 shadow p-3 mb-3 bg-light rounded">
+			<a href="meets/<%= come.meet.id%>"><h2 class="h3"><%= come.meet.title %></h2></a>
+			<div class="row justify-content-between">
+				<%= come.meet.description %>
+			</div>
+		</div>
+	<% end %>
+</div>
