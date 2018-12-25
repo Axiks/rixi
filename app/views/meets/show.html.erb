@@ -7,34 +7,51 @@
 			<div class="col-12"> Дата зустрічі <%= @meet.meetdate%></div>
 			<div class="col-12">Час зустрічі <%= @meet.meetime%></div>
 			<div class="col-12">Місце зустрічі <%= @meet.location%></div>
-			<div class="col-12">Автор зустрічі<%= @meet.user.email %> </div>
+			<div class="col-12">Автор зустрічі <%= @meet.user.email %> </div>
+			<div class="col-12">Кількість осіб що прийдуть <%= @comes.count %> </div>
 		</div>
 			</div>
+		<% if user_signed_in? %>
 		<div class="col-12 shadow p-3 mb-3 bg-light rounded">
 			<div class="row">
 			<div class="col-12">
-				<% if user_signed_in? %>
+				
 				<% if current_user.id == @meet.user_id %>
 					<%= link_to "Редагувати", edit_meet_path(@meet), :class => 'btn btn-info' %>
 					<%= link_to "Видалити", meet_path(@meet), method: :delete, data: { confirm: 'Дійсно видалити зустріч ???' }, :class => 'btn btn-danger' %>
 				<% end %>
+
+			</div>
+	  		</div>
+		</div>
+		<% end %>
+		<div class="col-12 shadow p-3 mb-3 bg-light rounded">
+		<div class="row">
+			<% if user_signed_in? %>
+			<div class="col-12">
 				<%= form_with(model: [ @meet, @meet.comes.build ], local: true) do |form| %>
-						<% if false #@com.come %>
-					    	<%= form.submit "Відмінити" , :class => 'btn btn-light' %>
+						<% if @come != nil and @come.come %>
+					    	<%= form.submit "Відмінити" , :class => 'btn btn-danger' %>
 						<% else %>
 					    	<%= form.submit "Прийду" , :class => 'btn btn-success' %>
 						<% end %>
 				<% end %>
+			</div>
 			<% end %>
-<!--
-			<% @comes.each do |come| %>
-				<div class="col-12 shadow p-3 mb-3 bg-light rounded">
-					<%= come.user_id %>
-					<%= come.come %>
-				</div>
-			<% end %>
--->
+		<div class="col-12">
+			<% if @comes.count != 0 %>
+			<h2>Учасники що прийдуть</h2>
+				<% @comes.each do |come| %>
+					<div class="col-12 shadow p-3 mb-3 bg-light rounded">
+						<p>ID Користуваача: <%= come.user.id %></p>
+						<p>E-mail : <%= come.user.email %></p>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+
 		</div>
 	  </div>
 	</div>
+	
 </div>

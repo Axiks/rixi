@@ -45,9 +45,25 @@
     </div>
   </nav>
   <div class="container">
+
+
+    <% if notice %>
+      <div class="row text-white">
+        <div class="col bg-success rounded p-3 mt-3 mb-3">
+          <%= notice %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="row text-white">
+        <div class="col bg-danger rounded p-3 mt-3 mb-3">
+          <%= alert %>
+        </div>
+      </div>
+    <% end %>
+
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </div>
 
   </body>

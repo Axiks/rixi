@@ -5,7 +5,15 @@ class MeetsController < ApplicationController
   	@meets = Meet.all
   end
   def show
-  	@comes = @meet.comes
+  	if user_signed_in?
+		@come = Come.where("user_id = ? AND meet_id = ? AND come = ?", current_user.id, params[:id], true).last
+	else
+		@come = nil
+	end
+
+  	#@comes = Come.where("meet_id = ? AND come = ?", params[:id], true)
+
+  	@comes = @meet.comes.where("meet_id = ? AND come = ?", params[:id], true)
   	#@users = User.find_by_id(@comes)
   	#@com = @comes.find(current_user.id)
   end
